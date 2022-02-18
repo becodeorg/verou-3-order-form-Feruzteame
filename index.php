@@ -44,15 +44,27 @@ include_once('main.php');
                             foreach ($products as $category => $items) {
                                 echo "<div>$category</div>" ;
                                 foreach ($items as $item) {
-                                   echo " <label for='name' >$item->name</label> 
-                                      <input type='checkbox' value='$item->name' name='name' id='name'>
-                                        ";
+                                   echo " <label for=$item->name >$item->name $item->price</label> 
+                                      <input type='checkbox' value=$item->name name=$item->name id=$item->name>";
                                }
                             }
                      }
                   ?>
-        <button type='submit' id='submit_btn'>Add To Cart</button>
+        <input type='submit' id='submit_btn'>
    </form>
+    <div>
+        <?php
+        if(isset($selected_products)){
+            $total_price = 0;
+         foreach ($selected_products as $product) {
+             print_r("<br>".$product['name']."   ");
+                 print_r($product['price']);
+             $total_price += $product['price'];
+         }
+            echo "<p>$total_price</p>";
+        }
+        ?>
+    </div>
 </main>
 
 <script src="index.js"></script>

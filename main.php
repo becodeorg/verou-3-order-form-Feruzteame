@@ -14,21 +14,29 @@ $zip = $_GET["zip"] ?? '';
 $city = $_GET["city"] ?? '';
 $address = $_GET["address"] ?? '';
 
-if(empty($email&&$fullName&&$tel&&$zip&&$city&&$address)){
+if(empty($email && $fullName && $tel && $zip && $city && $address)){
     echo "please fill all the field   ";
 }
-if(!empty($email&&$fullName&&$tel&&$zip&&$city&&$address)){
+if($email && $fullName && $tel && $zip && $city && $address){
     echo $fullName."<br>".$email."<br>".$tel."<br>".$zip."<br>".$city."<br>".$address."<br>";
 }
 
-$fruit = $_GET["fruit"] ?? '';
-$vegetable = $_GET["vegetable"] ?? '';
-$dairy = $_GET["dairy"] ?? '';
+$selected_products = [];
 
-$name = $_GET["name"];
+if (isset($products)) {
+    $total_price = 0;
+    foreach ($products as $category => $items) {
+        foreach ($items as $item) {
+            if (isset($_GET[$item->name]) && !empty($_GET[$item->name])) {
+                $selected_products[] = [
+                    'name' =>$_GET[$item->name],
+                    'price' => $item->price
+                ];
 
-if(empty($fruit) || empty($vegetable) || empty($dairy)){
-    echo "pls select";
+            }
+        }
+    }
+
 }
 
 
