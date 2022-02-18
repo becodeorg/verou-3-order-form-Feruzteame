@@ -1,3 +1,6 @@
+<?php
+include_once('main.php');
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,48 +9,56 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+
     <title>ORDER FORM</title>
 </head>
 <body>
 
-   <main>
-       <form action="" method="get">
-           <label for="name">Full Name</label>
-           <input type="text" name="name" id="name">
+<main>
+    <form action="" method="get">
+        <label for="fullName">Full Name</label>
+        <input type="text" name="name" id="fullName">
 
-           <label for="email">Email</label>
-           <input type="email" name="email" id="email">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
 
-           <label for="tele">Telephone</label>
-           <input type="number" name="tele" id="tele">
+        <label for="tel">Telephone</label>
+        <input type="number" name="tel" id="tel">
 
-           <label for="zip">Zip Code</label>
-           <input type="number" name="zip" id="zip">
+        <label for="zip">Zip Code</label>
+        <input type="number" name="zip" id="zip">
 
-           <label for="city">City Name</label>
-           <input type="text" name="city" id="city">
+        <label for="city">City Name</label>
+        <input type="text" name="city" id="city">
 
-           <label for="address">Address</label>
-           <input type="text" name="address" id="address">
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address">
 
-           <label for="submit">Submit</label>
-           <input type="submit" name="submit" id="submit">
-       </form>
+        <label for="submit">Submit</label>
+        <input type="submit" name="submit" id="submit">
+    </form>
 
-       <section>
-           <div>
-           </div>
-       </section>
-   </main>
+    <form method="get" action="">
+                  <?php
+                     if (isset($products)) {
+                            foreach ($products as $category => $items) {
+                                echo "<div>$category</div>" ;
+                                foreach ($items as $item) {
+                                   echo " <label for='name' >$item->name</label> 
+                                      <input type='checkbox' value='$item->name' name='name' id='name'>
+                                        ";
+                               }
+                            }
+                     }
+                  ?>
+        <button type='submit' id='submit_btn'>Add To Cart</button>
+   </form>
+</main>
 
-
-
+<script src="index.js"></script>
 </body>
 </html>
 
-<?php
-   include_once('view.php')
-?>
 
 
 
