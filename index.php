@@ -1,5 +1,5 @@
 <?php
-include_once('main.php');
+require_once 'products.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -8,72 +8,55 @@ include_once('main.php');
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.php">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>ORDER FORM</title>
 </head>
 <body>
 
 <main>
-    <form action="" method="get">
-        <label for="fullName">Full Name</label>
-        <input type="text" name="name" id="fullName">
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+    <form method="get" action="main.php" id="products">
+    <!--First form -->
+        <fieldset id="step-1"">
 
-        <label for="tel">Telephone</label>
-        <input type="number" name="tel" id="tel">
+            <?php
+            $ero = " €";
+            if (isset($products)) {
+                foreach ($products as $category => $items) {
+                    echo "<div class='category'>$category</div>" ;
+                    foreach ($items as $item) {
+                        echo " <input type='checkbox' class='check_box' value=$item->name name=$item->name id=$item->name>
+                             <label for=$item->name >$item->name <span>$item->price $ero</span> </label> ";
+                    }
+                }
+            }
 
-        <label for="zip">Zip Code</label>
-        <input type="number" name="zip" id="zip">
+            ?>
+            <div>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+        </fieldset>
 
-        <label for="city">City Name</label>
-        <input type="text" name="city" id="city">
+        <fieldset id="step-2">
+            <div>
+                <input type="text" name="fullName" id="fullName" class="personal_form" placeholder="Full-Name" >
+                <input type="email" name="email" id="email" class="personal_form" placeholder="Email" ><br>
+                <input type="number" name="tel" id="tel" class="personal_form" placeholder="Telephone" >
+                <input type="number" name="zip" id="zip" class="personal_form" placeholder="Zip Code"><br>
+                <input type="text" name="city" id="city" class="personal_form" placeholder="City" >
+                <input type="text" name="address" id="address" class="personal_form" placeholder="Address" ><br>
+                <button type="button" class="back-btn">Back</button>
+            </div>
+     </fieldset>
+       <div>
+            <button type="submit" id="submit-btn" disabled>Submit</button>
+        </div>
 
-        <label for="address">Address</label>
-        <input type="text" name="address" id="address">
-
-        <label for="submit">Submit</label>
-        <input type="submit" name="submit" id="submit">
     </form>
 
-    <form method="get" action="">
-                  <?php
-                     if (isset($products)) {
-                            foreach ($products as $category => $items) {
-                                echo "<div>$category</div>" ;
-                                foreach ($items as $item) {
-                                   echo " <label for=$item->name >$item->name $item->price</label> 
-                                      <input type='checkbox' value=$item->name name=$item->name id=$item->name>";
-                               }
-                            }
-                     }
-                  ?>
-        <input type='submit' id='submit_btn'>
-   </form>
-    <div>
-        <?php
-        if(isset($selected_products)){
-            $total_price = 0;
-         foreach ($selected_products as $product) {
-             print_r("<br>".$product['name']."   ");
-                 print_r($product['price']);
-             $total_price += $product['price'];
-         }
-            echo "<p>$total_price</p>";
-        }
-        ?>
-    </div>
-</main>
 
+</main>
 <script src="index.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-

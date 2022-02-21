@@ -9,6 +9,18 @@ $products = [
         (object)[
             'name' => 'orange',
             'price' => 4
+        ],
+        (object)[
+            'name' => 'Apple',
+            'price' => 4
+        ],
+        (object)[
+            'name' => 'strawberry',
+            'price' => 4
+        ],
+        (object)[
+            'name' => 'Kiwi',
+            'price' => 4
         ]
     ],
     'vegetable' => [
@@ -19,6 +31,18 @@ $products = [
         (object)[
             'name' => 'spinach',
             'price' => 5
+        ],
+        (object)[
+            'name' => 'Cabbage',
+            'price' => 5
+        ],
+        (object)[
+            'name' => 'Potato',
+            'price' => 5
+        ],
+        (object)[
+            'name' => 'Comcumer',
+            'price' => 5
         ]
     ],
     'dairy' => [
@@ -28,6 +52,18 @@ $products = [
         ],
         (object)[
             'name' => 'Butter',
+            'price' => 5
+        ],
+        (object)[
+            'name' => 'Cheese',
+            'price' => 5
+        ],
+        (object)[
+            'name' => 'yogurt',
+            'price' => 5
+        ],
+        (object)[
+            'name' => 'ice cream',
             'price' => 5
         ]
     ]
