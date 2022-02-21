@@ -40,11 +40,3 @@ Array.from(inputFields).forEach(function (input) {
         }
     });
 })
-
-// let submit = document.getElementById("submit-btn");
-// let field2 = document.getElementById("step-2");
-// let field1 = document.getElementById("step-1");
-// submit.addEventListener("click", function(){
-//     field2.style.display = "none";
-//     field1.style.display = "hidden";
-// })

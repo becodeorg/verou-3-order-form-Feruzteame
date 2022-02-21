@@ -16,6 +16,8 @@ require_once 'products.php';
 
 <main>
 
+    <p id="message"><?= $_GET['message'] ?? "Happy Shopping !" ?></p>
+
     <form method="get" action="main.php" id="products">
     <!--First form -->
         <fieldset id="step-1"">

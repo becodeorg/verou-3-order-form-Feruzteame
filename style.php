@@ -76,3 +76,12 @@ span{
 <!---->
 <!--}-->
 
+#message{
+   background-color: #FFB5B5;
+   width: 70%;
+   padding: 2%;
+border-radius: 5px;
+font-weight: bold;
+
+}
+

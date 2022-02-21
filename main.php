@@ -10,21 +10,28 @@ $city = $_GET["city"];
 $address = $_GET["address"];
 
 
+
+
 //empty validation
 if (!empty($email && $fullName && $tel && $zip && $city && $address)) {
     // number validation
     if((!is_numeric($zip) ) || (strlen($zip) != 4)){
-        header("location: index.php");
-        echo 'Please enter a value';
+        $message = 'Please Put the correct Zip code of your place. ';
+         header("location: index.php?message=". $message);
     }
     if((!is_numeric($tel))){
-        header("location: index.php");
-        echo ' Please enter a value';
+        $message = 'Please Put the correct Phone Number';
+        header("location: index.php?message=". $message);
+    }
+    $emails = "@email.com";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = $email.' Is invalid email';
+        header("location: index.php?message=". $message);
     }
     echo "<div id='contact_form'>$fullName <br>$email <br> $tel <br> $zip <br> $city <br> $address <br> </div> ";
   }else{
-    header("location: index.php");
-    echo '<div>Fill the form</div>';
+    $message = 'Please Fill The Form Correctly !';
+    header("location: index.php?message=". $message);
 }
 
 // selected product
@@ -47,8 +54,8 @@ if (isset($products)) {
    echo "<div id='total_price'> <br> Total_Price : $total_price$ero<br></div>";
 }
 if(empty($selected_products)){
-    header("location: index.php");
-    echo "please select item";
+    $message = "Please Select an item";
+    header("location: index.php?message=". $message);
 }
 
 
