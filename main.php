@@ -52,6 +52,7 @@ if (!empty($email && $fullName && $tel && $zip && $city && $address)) {
             }
             echo "<div id='contact_form'>$fullName <br>$email <br> $tel <br> $zip <br> $city <br> $address <br> </div> ";
             echo '<div id="success">Your Order is successfully !</div>';
+            echo '<div id="success">Within one week you will receive your item  !</div>';
   }
 
 
