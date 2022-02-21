@@ -17,7 +17,6 @@ require_once 'products.php';
 <main>
 
     <p id="message"><?= $_GET['message'] ?? "Happy Shopping !" ?></p>
-
     <form method="get" action="main.php" id="products">
     <!--First form -->
         <fieldset id="step-1"">
@@ -29,7 +28,7 @@ require_once 'products.php';
                     echo "<div class='category'>$category</div>" ;
                     foreach ($items as $item) {
                         echo " <input type='checkbox' class='check_box' value=$item->name name=$item->name id=$item->name>
-                             <label for=$item->name >$item->name <span>$item->price $ero</span> </label> ";
+                             <label for=$item->name> $item->name <span>$item->price $ero</span> </label> ";
                     }
                 }
             }

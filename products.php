@@ -65,6 +65,10 @@ $products = [
         (object)[
             'name' => 'ice cream',
             'price' => 5
+        ],
+        (object)[
+            'name' => 'heavy cream',
+            'price' => 5
         ]
     ]
 ];
